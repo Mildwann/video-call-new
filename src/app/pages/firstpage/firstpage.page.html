@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="welcome-title">Welcome to Meeting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="container">
+  <!-- MiniView (shown only on Android when coming from home page) -->
+  
+  <div class="welcome-container">
+    <div class="logo">
+      <img src="assets/zoom.png" alt="App Logo" class="app-logo">
+    </div>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+      <h2>Ready to connect with others?</h2>
+      <p>Join or create a room for your video call.</p>
+    </div>
+
+    <ion-button class="create-button" (click)="createRoom()">
+      Create Room
+    </ion-button>
+
+    <ion-button fill="outline" class="join-button" (click)="openJoinPopup()">
+      Join Rooms
+    </ion-button>
+    <div *ngIf="isInCall" 
+    class="mini-view-container" 
+    
+    (click)="tooroom()">
+      <video #miniViewVideo autoplay muted playsinline></video>
+      <div class="mini-view-overlay">
+        <ion-icon name="expand" class="expand-icon"></ion-icon>
+        <div class="call-status">
+          <ion-icon name="videocam"></ion-icon>
+          <span>Live Call</span>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</ion-content>
